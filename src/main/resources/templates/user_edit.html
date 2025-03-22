@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<body>
+
+<h2>Редактирование пользователя</h2>
+<br>
+
+<form th:action="@{editUser}" th:object="${user}" th:method="post">
+
+    <!-- Скрытое поле для сохранения Id -->
+    <input type="hidden" th:field="*{id}"/>
+    <!-- Видимые поля-->
+    <label for="name">Имя: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br>
+    <br>
+    <label for="telephone">Телефон: </label>
+    <input type="text" th:field="*{telephone}" id="telephone"/>
+    <br>
+    <br>
+    <label for="email">Email: </label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br>
+    <br>
+    <input type="submit" value="Изменить данные"/>
+
+</form>
+
+</body>
+</html>
+
