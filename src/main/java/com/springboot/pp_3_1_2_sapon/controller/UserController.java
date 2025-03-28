@@ -44,8 +44,12 @@ public class UserController {
     @PostMapping("/updateInfo")
     public String updateUser(@RequestParam("userId") int id, Model model) {
         User user = userService.getUser(id);
-        model.addAttribute("user", user);
-        return "user_edit";
+        if (user != null) {
+            model.addAttribute("user", user);
+            return "user_edit";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/editUser")
